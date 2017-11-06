@@ -19,9 +19,7 @@ class CreateTableCapacitacion extends Migration
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->integer('duracion');
-            $table->integer('id_hora_dia')->unsigned();
-
-            $table->foreign('id_hora_dia')->references('id')->on('dia_hora');
+    
 
             $table->timestamps();
         });

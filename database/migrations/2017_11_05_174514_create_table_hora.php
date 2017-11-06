@@ -23,9 +23,11 @@ class CreateTableHora extends Migration
             $table->increments('id');
             $table->integer('id_dia')->unsigned();
             $table->integer('id_hora')->unsigned();
+            $table->integer('id_capacitacion')->unsigned();
 
             $table->foreign('id_dia')->references('id')->on('dia');
             $table->foreign('id_hora')->references('id')->on('hora');
+            $table->foreign('id_capacitacion')->references('id')->on('capacitacion');
             
             $table->timestamps();
         });

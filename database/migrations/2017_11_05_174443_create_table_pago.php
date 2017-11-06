@@ -18,6 +18,9 @@ class CreateTablePago extends Migration
             $table->integer('monto');
             $table->date('fecha_pago');
             $table->date('fecha_vencimiento');
+            $table->integer('id_beca')->unsigned();
+
+            $table->foreign('id_beca')->references('id')->on('beca')->onDelete('cascade');
             $table->timestamps();
         });
     }
