@@ -26,23 +26,29 @@ Route::get('/home', 'HomeController@index');
     Route::resource('users','UsersController');
 
     Route::get('users/{id}/destroy', [
-			'uses' => 'UsersController@destroy',
-			'as' => 'admin.users.destroy'
-		]);
+		'uses' => 'UsersController@destroy',
+		'as' => 'admin.users.destroy'
+	]);
 
     Route::resource('usertype','UsertypeController');
 
     Route::get('usertype/{id}/destroy', [
-			'uses' => 'UsertypeController@destroy',
-			'as' => 'admin.usertype.destroy'
-		]);
+		'uses' => 'UsertypeController@destroy',
+		'as' => 'admin.usertype.destroy'
+	]);
 
     Route::resource('institucion','institucionController');
 
     Route::get('institucion/{id}/destroy', [
-			'uses' => 'institucionController@destroy',
-			'as' => 'admin.institucion.destroy'
-		]);
+		'uses' => 'institucionController@destroy',
+		'as' => 'admin.institucion.destroy'
+	]);
+
+	Route::resource('empleado','EmpleadosController');
+	Route::get('empleado/{id}/destroy', [
+		'uses' => 'EmpleadosController@destroy',
+		'as' => 'admin.empleado.destroy'
+	]);
 
 
 });
