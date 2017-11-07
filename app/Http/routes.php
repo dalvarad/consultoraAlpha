@@ -53,4 +53,12 @@ Route::get('/home', 'HomeController@index');
 
 });
 
+Route::resource('capacitaciones','capacitacionesController');
+
+Route::get('capacitaciones/{id}/destroy', [
+			'uses' => 'capacitacionesController@destroy',
+			'as' => 'capacitaciones.destroy'
+		]);
+
+
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class capacitacion extends Model
 {
     //
-    protected $table:"capacitacion";
+    protected $table="capacitacion";
   //  protected $primarykey = 'id';
 
     protected $fillable=['nombre','cupos','fecha_inicio','fecha_fin','duracion'];
