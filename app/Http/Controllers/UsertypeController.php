@@ -53,7 +53,7 @@ class UsertypeController extends Controller
         return view('admin.usertype.edit')->with('usertype', $usertype);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id)   
     {
         
         $usertype = usertype::find($id);

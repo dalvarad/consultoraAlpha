@@ -37,6 +37,13 @@ Route::get('/home', 'HomeController@index');
 			'as' => 'admin.usertype.destroy'
 		]);
 
+    Route::resource('institucion','institucionController');
+
+    Route::get('institucion/{id}/destroy', [
+			'uses' => 'institucionController@destroy',
+			'as' => 'admin.institucion.destroy'
+		]);
+
 
 });
 
