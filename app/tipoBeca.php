@@ -11,6 +11,6 @@ class tipoBeca extends Model
     protected $fillable=['tipo_beca'];
 
     public function tipoBeca(){
-    	return $this->hasMany('App\beca')
+    	return $this->hasMany('App\beca');
     }
 }

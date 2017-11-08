@@ -62,3 +62,14 @@ Route::get('capacitaciones/{id}/destroy', [
 
 
 
+Route::resource('tipobeca','tipobecaController');
+Route::get('tipobeca/{id}/destroy', [
+			'uses' => 'tipobecaController@destroy',
+			'as' => 'tipobeca.destroy'
+		]);
+
+Route::resource('beca','becaController');
+Route::get('beca/{id}/destroy', [
+			'uses' => 'becaController@destroy',
+			'as' => 'beca.destroy'
+		]);
