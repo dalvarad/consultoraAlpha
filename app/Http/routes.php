@@ -50,6 +50,12 @@ Route::get('/home', 'HomeController@index');
 		'as' => 'admin.empleado.destroy'
 	]);
 
+	Route::resource('pago','PagoController');
+	Route::get('pago/{id}/destroy', [
+		'uses' => 'PagoController@destroy',
+		'as' => 'admin.pago.destroy'
+	]);
+
 
 });
 
