@@ -56,6 +56,12 @@ Route::get('/home', 'HomeController@index');
 		'as' => 'admin.pago.destroy'
 	]);
 
+	Route::resource('ebic','EbicController');
+	Route::get('ebic/{id}/destroy', [
+		'uses' => 'EbicController@destroy',
+		'as' => 'admin.ebic.destroy'
+	]);	
+
 
 });
 
