@@ -102,7 +102,7 @@ class EbicController extends Controller
         					  ->orderBy('id')
         					  ->lists('id','nombre');
 
-        return view('admin.pago.edit')->with('pago', $pago)->with('lista_beca', $lista_beca)with('lista_empleados', $lista_empleados)->with('lista_instituciones', $lista_instituciones)->with('lista_capacitaciones', $lista_capacitaciones);;
+        return view('admin.pago.edit')->with('pago', $pago)->with('lista_beca', $lista_beca)->with('lista_empleados', $lista_empleados)->with('lista_instituciones', $lista_instituciones)->with('lista_capacitaciones', $lista_capacitaciones);
     }
 
     /**

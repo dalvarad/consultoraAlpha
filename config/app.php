@@ -159,6 +159,7 @@ return [
         /*
         * Application Personal Providers
         */
+        Barryvdh\DomPDF\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Freshwork\ChileanBundle\Laravel\ChileanBundleServiceProvider::class,
@@ -218,6 +219,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Flash' => Laracasts\Flash\Flash::class,
         'Rut'   => Freshwork\ChileanBundle\Laravel\Facades\Rut::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

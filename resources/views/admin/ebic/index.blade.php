@@ -7,6 +7,7 @@
 <div>
 	<div align="center">
 		<a href="{{ route('admin.ebic.create') }}" class="btn btn-info">Registrar nueva capacitación.</a>
+		<a href="{{ url('admin/pdfebic')}}" class="btn btn-danger"><span class="glyphicon glyphicon-save-file">pdf</span></a>
 	
 	</div>
 	<p></p>
