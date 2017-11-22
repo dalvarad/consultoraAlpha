@@ -30,7 +30,7 @@ class UsersController extends Controller
     {
     	     $lista_tipo= DB::table('usertype')
                      ->orderBy('id')
-                     ->lists('id','name_type');
+                     ->lists('name_type');
     	return view('admin.users.create')->with('lista_tipo',$lista_tipo);
     
     }

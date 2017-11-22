@@ -23,7 +23,7 @@
 
 		<p></p>
 		{!! Form::label('id_user_type', 'Tipo de Usuario') !!}
-		{!! Form::select('id_user_type', ['1' => 'Administrador'], null, ['class' => 'form-control', 'placeholder' => 'Seleccione una opción...', 'required']) !!}
+		{!! Form::select('id_user_type', [$lista_tipo], null, ['class' => 'form-control', 'placeholder' => 'Seleccione una opción...', 'required']) !!}
 
 		<p></p>
 
