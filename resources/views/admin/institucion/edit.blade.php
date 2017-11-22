@@ -8,7 +8,7 @@
 
 
  		{!! Form::label('nombre', 'Nombre de Institucion') !!}
-		{!! Form::text('nombre', $institucion->nombre, ['class' => 'form-control', 'placeholder' => ' Institucion', 'required']) !!}
+		{!! Form::text('nombre', $institucion->nombre_institucion, ['class' => 'form-control', 'placeholder' => ' Institucion', 'required']) !!}
 
 
 		<p></p>

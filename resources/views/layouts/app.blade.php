@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Consultora Alpha</title>
+    <link rel="stylesheet" href="{{asset ('estilos/bootstrap/css/bootstrap.css')}}">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -48,6 +50,24 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Inicio</a></li>
+                    <li><a href="{{ url('admin/empleado')}}">Empleados</a></li>
+                    <li><a href="{{ url('admin/ebic')}}">Capacitiones</a></li>
+                    <li><a href="{{ url('admin/pago')}}">Pagos</a></li>
+                    <li><a href="{{ url('admin/institucion')}}">Instituciones</a></li>
+                    <li><a href="{{ url('/capacitaciones')}}">Tipos de Capacitaciones</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span></span> Becas
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                 <a href="{{url('/beca')}}">Becas</a>
+                                <a href="{{url('/tipobeca')}}">Tipos de Becas</a>                            
+                            </li>
+                        </ul>
+                    </li>
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->

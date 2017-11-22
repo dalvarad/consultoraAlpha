@@ -4,7 +4,7 @@
 
 <body>
   <header>
-  <link rel="stylesheet" href="pdfStyle.css">
+  <link rel="stylesheet" href="estilos/pdfStyle.css">
     <h1>Consultora Alpha</h1>
     <p class="izq">
               <img src="images/logo.jpeg" style="width: 100px; height: 80px; float: right;">
@@ -13,7 +13,9 @@
   </header>
   <footer>
    
-         
+         <p class="izq">
+              Consultora Alpha
+         </p>
           <p class="page">
              Página
           </p>
@@ -22,12 +24,14 @@
   <div id="content">
    <table id="tabla" style="width:100% ">
     <thead>
-      <th>Rut</th>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Capacitación</th>
-      <th>Beca</th>
-      <th>Institución</th>
+      <tr>
+        <th>Rut</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Capacitación</th>
+        <th>Beca</th>
+        <th>Institución</th>
+      </tr>
     </thead>
     <tbody>
        @foreach($ebic as $ebic)
@@ -35,13 +39,13 @@
                     <td>{{ $ebic->rut }}</td>
                     <td>{{ $ebic->first_name }}</td>
                     <td>{{ $ebic->last_name }}</td>
-                    <td>{{ $ebic->capacitacion->nombre }}</td>
+                    <td>{{ $ebic->nombre_capacitacion }}</td>
                     <td>{{ $ebic->porcentaje }}</td>
-                    <td>{{ $ebic->institucion->nombre }}</td>
+                    <td>{{ $ebic->nombre_institucion }}</td>
                 </tr>
             @endforeach
     </tbody>
-</table>
+  </table>
   </div>
 </body>
 </html>

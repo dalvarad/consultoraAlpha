@@ -47,7 +47,7 @@ class CapacitacionesController extends Controller
 
         $capacitaciones->save();
 
-        Session::flash('message_success', "Se ha registrado la capacitacion $capacitaciones->nombre Exitosamente!");
+        Session::flash('message_success', "Se ha registrado la capacitacion $capacitaciones->nombre_capacitacion Exitosamente!");
 
             return redirect(route('capacitaciones.index'));
     }
@@ -85,7 +85,7 @@ class CapacitacionesController extends Controller
     public function update(Request $request, $id)
     {
         $capacitacion = capacitacion::find($id);
-        $capacitacion->nombre = $request->nombre;
+        $capacitacion->nombre_capacitacion = $request->nombre_capacitacion;
         $capacitacion->cupos = $request->cupos;
         $capacitacion->fecha_inicio = $request->fecha_inicio;
         $capacitacion->fecha_fin = $request->fecha_fin;
@@ -106,7 +106,7 @@ class CapacitacionesController extends Controller
         $capacitacion = capacitacion::find($id);
         $capacitacion->delete();    
 
-        Session::flash('message_danger', "Se ha eliminado la capacitacion $capacitacion->nombre Exitosamente!");
+        Session::flash('message_danger', "Se ha eliminado la capacitacion $capacitacion->nombre_capacitacion Exitosamente!");
         return redirect(route('capacitaciones.index'));
     }
 }

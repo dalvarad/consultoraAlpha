@@ -8,7 +8,7 @@ class institucion extends Model
 {
     protected $table ="institucion";
 
-    protected $fillable=['nombre','direccion'];
+    protected $fillable=['nombre_institucion','direccion'];
 
     public function beca(){
     	return $this->belongsToMany('App\beca');

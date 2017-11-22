@@ -24,7 +24,7 @@
 			@foreach($institucion as $institucion)
 				<tr>
 					<td>{{ $institucion->id }}</td>
-					<td>{{ $institucion->nombre }}</td>
+					<td>{{ $institucion->nombre_institucion }}</td>
 					<td>{{ $institucion->direccion }}</td>
 
 			

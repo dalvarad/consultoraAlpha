@@ -5,19 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Ebic;
 use DB;
+use Illuminate\Support\Facades\Session;
 
 class EbicController extends Controller
 {
     public function index()
     {
-    	$ebic = DB::table('empleado_beca_institucion_capacitacion')
-    			->join('institucion', 'institucion.id', '=', 'empleado_beca_institucion_capacitacion.id_institucion' )
-    			->join('empleado', 'empleado.id', '=', 'empleado_beca_institucion_capacitacion.id_empleado')
-    			->join('beca','beca.id', '=', 'empleado_beca_institucion_capacitacion.id_beca')
-    			->join('capacitacion', 'capacitacion.id', '=', 'empleado_beca_institucion_capacitacion.id_capacitacion')
-                ->select('empleado_beca_institucion_capacitacion.*','institucion.nombre','institucion.direccion','empleado.first_name', 'empleado.last_name', 'empleado.rut', 'beca.id_tipo_beca', 'beca.porcentaje', 'capacitacion.nombre')
-                ->orderBy('empleado_beca_institucion_capacitacion.id','DESC')
+    	$ebic = DB::table('ebic')
+    			->join('institucion', 'institucion.id', '=', 'ebic.id_institucion' )
+    			->join('empleado', 'empleado.id', '=', 'ebic.id_empleado')
+    			->join('beca','beca.id', '=', 'ebic.id_beca')
+    			->join('capacitacion', 'capacitacion.id', '=', 'ebic.id_capacitacion')
+                ->select('ebic.*','institucion.nombre_institucion','institucion.direccion','empleado.first_name', 'empleado.last_name', 'empleado.rut', 'beca.id_tipo_beca', 'beca.porcentaje', 'capacitacion.nombre_capacitacion')
+                ->orderBy('ebic.id','DESC')
                 ->get();
 
         return view('admin.ebic.index')->with('ebic', $ebic);
@@ -40,11 +42,11 @@ class EbicController extends Controller
         
         $lista_instituciones = DB::table('institucion')
         					   ->orderBy('id')
-        					   ->lists('nombre', 'id');
+        					   ->lists('nombre_institucion', 'id');
 
         $lista_capacitaciones = DB::table('capacitacion')
         					  ->orderBy('id')
-        					  ->lists('nombre', 'id');
+        					  ->lists('nombre_capacitacion', 'id');
 
         return view('admin.ebic.create')->with('lista_beca',$lista_beca)->with('lista_empleados', $lista_empleados)->with('lista_instituciones', $lista_instituciones)->with('lista_capacitaciones', $lista_capacitaciones);
     }
@@ -57,7 +59,7 @@ class EbicController extends Controller
      */
     public function store(Request $request)
     {
-        $ebic = new beca($request->all());
+        $ebic = new Ebic($request->all());
         
     	$ebic->save();
 
@@ -85,24 +87,24 @@ class EbicController extends Controller
      */
     public function edit($id)
     {
-        $ebic = empleado_beca_institucion_capacitacion::find($id);
+        $ebic = Ebic::find($id);
         $lista_beca = DB::table('beca')
         			  ->orderBy('id')
-        			  ->lists('id','porcentaje');
+        			  ->lists('porcentaje', 'id');
 
         $lista_empleados = DB::table('empleado')
         				->orderBy('id')
-        				->lists('id','rut');
+        				->lists('rut', 'id');
         
         $lista_instituciones = DB::table('institucion')
         					   ->orderBy('id')
-        					   ->lists('id','nombre');
+        					   ->lists('nombre_institucion', 'id');
 
         $lista_capacitaciones = DB::table('capacitacion')
         					  ->orderBy('id')
-        					  ->lists('id','nombre');
+        					  ->lists('nombre_capacitacion', 'id');
 
-        return view('admin.pago.edit')->with('pago', $pago)->with('lista_beca', $lista_beca)->with('lista_empleados', $lista_empleados)->with('lista_instituciones', $lista_instituciones)->with('lista_capacitaciones', $lista_capacitaciones);
+        return view('admin.ebic.edit')->with('ebic', $ebic)->with('lista_beca', $lista_beca)->with('lista_empleados', $lista_empleados)->with('lista_instituciones', $lista_instituciones)->with('lista_capacitaciones', $lista_capacitaciones);
     }
 
     /**
@@ -114,11 +116,11 @@ class EbicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ebic = empleado_beca_institucion_capacitacion::find($id);
+        $ebic = Ebic::find($id);
         $ebic->fill($request->all());
         $ebic->save();
 
-        Session::flash('message_success', "Se ha modificado la capacitacion $empleado_beca_institucion_capacitacion->id exitosamente!");
+        Session::flash('message_success', "Se ha modificado la capacitacion $ebic->id exitosamente!");
         return redirect(route('admin.ebic.index'));
     }
 
@@ -130,10 +132,10 @@ class EbicController extends Controller
      */
     public function destroy($id)
     {
-        $ebic = empleado_beca_institucion_capacitacion::find($id);
+        $ebic = Ebic::find($id);
         $ebic->delete();
 
-        Session::flash('message_danger', "Se ha eliminado la capacitacion $empleado_beca_institucion_capacitacion->id exitosamente!");
+        Session::flash('message_danger', "Se ha eliminado la capacitacion $ebic->id exitosamente!");
         return redirect(route('admin.ebic.index'));
     }
 }

@@ -24,7 +24,7 @@
 			@foreach($capacitaciones as $capacitacion)
 				<tr>
 					<td>{{ $capacitacion->id }}</td>
-					<td>{{ $capacitacion->nombre }}</td>
+					<td>{{ $capacitacion->nombre_capacitacion }}</td>
 					<td>{{ $capacitacion->cupos }}</td>
 					<td>{{ $capacitacion->fecha_inicio }}</td>
 					<td>{{ $capacitacion->fecha_fin }}</td>

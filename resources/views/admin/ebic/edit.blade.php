@@ -4,7 +4,7 @@
 
 @section('content')
 
-	{!! Form::open(['route' => ['admin.ebic.update', $ebic] 'method' => 'PUT']) !!}
+	{!! Form::open(['route' => ['admin.ebic.update', $ebic], 'method' => 'PUT']) !!}
 
 	<p></p>
 	{!! Form::label('id_empleado', 'Rut Empleado') !!}

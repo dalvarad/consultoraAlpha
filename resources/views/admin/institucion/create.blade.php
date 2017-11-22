@@ -7,8 +7,8 @@
 
 	{!! Form::open(['route' => 'admin.institucion.store','method' => 'POST']) !!}
 
- 		{!! Form::label('nombre', 'Nombre de institucion') !!}
-		{!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Ingrese nombre institucion', 'required']) !!}
+ 		{!! Form::label('nombre_institucion', 'Nombre de institucion') !!}
+		{!! Form::text('nombre_institucion', null, ['class' => 'form-control', 'placeholder' => 'Ingrese nombre institucion', 'required']) !!}
 
 
 		<p></p>

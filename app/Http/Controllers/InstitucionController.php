@@ -33,14 +33,12 @@ public function index()
 
     public function store(request $request)
     {
-
-    
     	$institucion = new institucion($request->all());
     	
 
     	$institucion->save();
 
-        Session::flash('message_success', "Se ha registrado el tipo $institucion->nombre Exitosamente!");
+        Session::flash('message_success', "Se ha registrado la institución $institucion->nombre_institucion Exitosamente!");
 
      	    return redirect(route('admin.institucion.index'));
 
@@ -65,13 +63,13 @@ public function index()
         y en este caso, solo valido los campos que necesito*/
      
 
-        $institucion->nombre = $request->nombre;
+        $institucion->nombre_institucion = $request->nombre_institucion;
         $institucion->direccion = $request->direccion;
     
 
         $institucion->save();
         
-        Session::flash('message_success', "Se ha modificado el usuario $institucion->nombre Exitosamente!");
+        Session::flash('message_success', "Se ha modificado la institución $institucion->nombre_institucion exitosamente!");
         return redirect(route('admin.institucion.index'));
      
     }
@@ -80,7 +78,7 @@ public function index()
         $institucion = institucion::find($id);
         $institucion->delete();    
 
-        Session::flash('message_danger', "Se ha eliminado el usuario $institucion->nombre Exitosamente!");
+        Session::flash('message_danger', "Se ha eliminado la institución $institucion->nombre_institucion exitosamente!");
         return redirect(route('admin.institucion.index'));
     }
 }

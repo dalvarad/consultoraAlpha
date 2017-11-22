@@ -37,7 +37,7 @@ class BecaController extends Controller
     {
         $lista_tipo = DB::table('tipobeca')
                      ->orderBy('id')
-                     ->lists('tipo_beca');
+                     ->lists('tipo_beca', 'id');
         return view('beca.create')->with('lista_tipo',$lista_tipo);
     }
 

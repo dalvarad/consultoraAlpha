@@ -62,13 +62,13 @@ Route::get('/home', 'HomeController@index');
 		'as' => 'admin.ebic.destroy'
 	]);	
 	Route::get('pdfebic',function(){
-		$ebic = DB::table('empleado_beca_institucion_capacitacion')
-    			->join('institucion', 'institucion.id', '=', 'empleado_beca_institucion_capacitacion.id_institucion' )
-    			->join('empleado', 'empleado.id', '=', 'empleado_beca_institucion_capacitacion.id_empleado')
-    			->join('beca','beca.id', '=', 'empleado_beca_institucion_capacitacion.id_beca')
-    			->join('capacitacion', 'capacitacion.id', '=', 'empleado_beca_institucion_capacitacion.id_capacitacion')
-                ->select('empleado_beca_institucion_capacitacion.*','institucion.nombre','institucion.direccion','empleado.first_name', 'empleado.last_name', 'empleado.rut', 'beca.id_tipo_beca', 'beca.porcentaje', 'capacitacion.nombre')
-                ->orderBy('empleado_beca_institucion_capacitacion.id','DESC')
+		$ebic = DB::table('ebic')
+    			->join('institucion', 'institucion.id', '=', 'ebic.id_institucion' )
+    			->join('empleado', 'empleado.id', '=', 'ebic.id_empleado')
+    			->join('beca','beca.id', '=', 'ebic.id_beca')
+    			->join('capacitacion', 'capacitacion.id', '=', 'ebic.id_capacitacion')
+                ->select('ebic.*','institucion.nombre_institucion','institucion.direccion','empleado.first_name', 'empleado.last_name', 'empleado.rut', 'beca.id_tipo_beca', 'beca.porcentaje', 'capacitacion.nombre_capacitacion')
+                ->orderBy('ebic.id','DESC')
                 ->get();
 		$pdf = PDF::loadView('admin.ebic.pdf', ['ebic' => $ebic]);
 		return $pdf->download('capacitaciones.pdf');

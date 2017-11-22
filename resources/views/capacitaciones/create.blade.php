@@ -7,8 +7,8 @@
 
 	{!! Form::open(['route' => 'capacitaciones.store','method' => 'POST']) !!}
 
- 		{!! Form::label('nombre', 'Nombre Capacitacion') !!}
-		{!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Nombre Capacitacion', 'required']) !!}
+ 		{!! Form::label('nombre_capacitacion', 'Nombre Capacitacion') !!}
+		{!! Form::text('nombre_capacitacion', null, ['class' => 'form-control', 'placeholder' => 'Nombre Capacitacion', 'required']) !!}
 
 		{!! Form::label('cupos', 'Cupos') !!}
 		{!! Form::text('cupos', null, ['class' => 'form-control', 'placeholder' => '10', 'required']) !!}

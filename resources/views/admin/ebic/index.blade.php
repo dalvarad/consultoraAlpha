@@ -27,12 +27,12 @@
 					<td>{{ $ebic->rut }}</td>
 					<td>{{ $ebic->first_name }}</td>
 					<td>{{ $ebic->last_name }}</td>
-					<td>{{ $ebic->capacitacion->nombre }}</td>
+					<td>{{ $ebic->nombre_capacitacion }}</td>
 					<td>{{ $ebic->porcentaje }}</td>
-					<td>{{ $ebic->institucion->nombre }}</td>
+					<td>{{ $ebic->nombre_institucion }}</td>
 					<td>
-						<a href="{{ route('admin.ebic.edit', $becas->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> 
-						<a href="{{ route('admin.ebic.destroy', $becas->id) }}" onclick="return confirm('¿Está seguro de eliminar la capacitación seleccionada?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						<a href="{{ route('admin.ebic.edit', $ebic->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> 
+						<a href="{{ route('admin.ebic.destroy', $ebic->id) }}" onclick="return confirm('¿Está seguro de eliminar la capacitación seleccionada?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
 					</td>
 				</tr>
 
