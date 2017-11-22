@@ -17,7 +17,7 @@ class CreateTableBeca extends Migration
             $table->integer('id_tipo_beca')->unsigned();
             $table->integer('porcentaje');
 
-            $table->foreign('id_tipo_beca')->references('id')->on('tipoBeca');
+            $table->foreign('id_tipo_beca')->references('id')->on('tipoBeca')->onUpdate('CASCADE');
             
 
             $table->timestamps();

@@ -19,7 +19,7 @@ class BecaController extends Controller
      */
     public function index()
     {
-           $beca = \DB::table('beca')
+           $beca = DB::table('beca')
                   ->join('tipobeca', 'tipobeca.id', '=', 'beca.id_tipo_beca' )
                   ->select('beca.*','tipobeca.tipo_beca')
                   ->orderBy('beca.id','DESC')
@@ -35,9 +35,9 @@ class BecaController extends Controller
      */
     public function create()
     {
-        $lista_tipo= DB::table('tipobeca')
+        $lista_tipo = DB::table('tipobeca')
                      ->orderBy('id')
-                     ->lists('id','tipo_beca');
+                     ->lists('tipo_beca');
         return view('beca.create')->with('lista_tipo',$lista_tipo);
     }
 

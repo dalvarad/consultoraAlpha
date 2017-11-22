@@ -12,7 +12,7 @@
 
 		<p></p>
 		{!! Form::label('id_tipo_beca', 'Tipo Beca') !!}
-		{!! Form::select('id_tipo_beca', ['1' => 'Matricula', '2' => 'Total(ejemplo)'], null, ['class' => 'form-control', 'placeholder' => 'Seleccione una opción...', 'required']) !!}
+		{!! Form::select('id_tipo_beca', [$lista_tipo], null, ['class' => 'form-control', 'placeholder' => 'Seleccione una opción...', 'required']) !!}
 
 		<p></p>
 
