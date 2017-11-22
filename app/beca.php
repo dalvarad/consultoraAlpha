@@ -19,6 +19,11 @@ class beca extends Model
     }
 
 //tabla pibote
+
+    protected $table = "empleado_beca_institucion_capacitacion";
+
+    protected $fillable = ['id_empleado', 'id_beca', 'id_institucion', 'id_capacitacion'];
+
     public function capacitacion(){
     	return $this->belongsToMany('App\capacitacion')->witchTimestamp();
     }

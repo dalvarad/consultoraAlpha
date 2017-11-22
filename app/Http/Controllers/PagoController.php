@@ -31,7 +31,7 @@ class PagoController extends Controller
     {
         $lista_beca = DB::table('beca')
         			  ->orderBy('id')
-        			  ->lists('id','porcentaje');
+        			  ->lists('porcentaje', 'id');
 
         return view('admin.pago.create')->with('lista_beca',$lista_beca);
     }

@@ -32,19 +32,19 @@ class EbicController extends Controller
     {
         $lista_beca = DB::table('beca')
         			  ->orderBy('id')
-        			  ->lists('id','porcentaje');
+        			  ->lists('porcentaje', 'id');
         
         $lista_empleados = DB::table('empleado')
         				->orderBy('id')
-        				->lists('id','rut');
+        				->lists('rut', 'id');
         
         $lista_instituciones = DB::table('institucion')
         					   ->orderBy('id')
-        					   ->lists('id','nombre');
+        					   ->lists('nombre', 'id');
 
         $lista_capacitaciones = DB::table('capacitacion')
         					  ->orderBy('id')
-        					  ->lists('id','nombre');
+        					  ->lists('nombre', 'id');
 
         return view('admin.ebic.create')->with('lista_beca',$lista_beca)->with('lista_empleados', $lista_empleados)->with('lista_instituciones', $lista_instituciones)->with('lista_capacitaciones', $lista_capacitaciones);
     }
@@ -57,11 +57,11 @@ class EbicController extends Controller
      */
     public function store(Request $request)
     {
-        $ebic = new empleado_beca_institucion_capacitacion($request->all());
+        $ebic = new beca($request->all());
         
     	$ebic->save();
 
-        Session::flash('message_success', "Se ha registrado la capacitacion $empleado_beca_institucion_capacitacion->id exitosamente!");
+        Session::flash('message_success', "Se ha registrado la capacitacion $ebic->id exitosamente!");
 
         return redirect(route('admin.ebic.index'));
     }
