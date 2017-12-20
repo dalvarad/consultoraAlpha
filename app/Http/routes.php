@@ -56,6 +56,12 @@ Route::get('/home', 'HomeController@index');
 		'as' => 'admin.pago.destroy'
 	]);
 
+	Route::resource('query','queryController');
+	Route::get('query/{id}/destroy', [
+		'uses' => 'queryController@destroy',
+		'as' => 'admin.query.destroy'
+	]);
+
 	Route::resource('ebic','EbicController');
 	Route::get('ebic/{id}/destroy', [
 		'uses' => 'EbicController@destroy',

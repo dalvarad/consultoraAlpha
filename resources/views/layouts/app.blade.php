@@ -19,6 +19,7 @@
 
     <style>
         body {
+            background-color: #F2F2F2;
             font-family: 'Lato';
         }
 
@@ -28,7 +29,7 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top" style="font-family: Helvetica Neue, Helvetica, Arial; background-color: #FFFFFF;">
         <div class="container">
             <div class="navbar-header">
 
@@ -41,7 +42,8 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+
+                <a class="navbar-brand" href="{{ url('/') }}" style="color: #000000;">
                     Consultora Alpha
                 </a>
             </div>
@@ -49,12 +51,12 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Inicio</a></li>
-                    <li><a href="{{ url('admin/empleado')}}">Empleados</a></li>
-                    <li><a href="{{ url('admin/ebic')}}">Capacitiones</a></li>
-                    <li><a href="{{ url('admin/pago')}}">Pagos</a></li>
-                    <li><a href="{{ url('admin/institucion')}}">Instituciones</a></li>
-                    <li><a href="{{ url('/capacitaciones')}}">Tipos de Capacitaciones</a></li>
+                    <li><a href="{{ url('/home') }}" style="color: #000000;">Inicio</a></li>
+                    <li><a href="{{ url('admin/empleado')}}" style="color: #000000;">Empleados</a></li>
+                    <li><a href="{{ url('admin/ebic')}}" style="color: #000000;">Capacitiones</a></li>
+                    <li><a href="{{ url('admin/pago')}}" style="color: #000000;">Pagos</a></li>
+                    <li><a href="{{ url('admin/institucion')}}" style="color: #000000;">Instituciones</a></li>
+                    <li><a href="{{ url('/capacitaciones')}}" style="color: #000000;">Tipos de Capacitaciones</a></li>
                     
                     <li class="dropdown">
                         <a href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -62,8 +64,8 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                 <a href="{{url('/beca')}}">Becas</a>
-                                <a href="{{url('/tipobeca')}}">Tipos de Becas</a>                            
+                                 <a href="{{url('/beca')}}" style="color: #000000;">Becas</a>
+                                <a href="{{url('/tipobeca')}}" style="color: #000000;">Tipos de Becas</a>                            
                             </li>
                         </ul>
                     </li>
@@ -74,8 +76,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Entrar</a></li>
-                        <li><a href="{{ url('/register') }}">Registrarse</a></li>
+                        <li><a href="{{ url('/login') }}" style="color: #000000;">Entrar</a></li>
+                        <li><a href="{{ url('/register') }}" style="color: #000000;">Registrarse</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -83,7 +85,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
+                                <li><a href="{{ url('/logout') }}" style="color: #000000;"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
                             </ul>
                         </li>
                     @endif
