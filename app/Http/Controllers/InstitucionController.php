@@ -11,7 +11,10 @@ use Illuminate\Support\Facades\Session;
 
 class InstitucionController extends Controller{
 
-
+public function __construct()
+     {
+         $this->middleware('admin', ['only' => ['create','store', 'edit', 'update', 'destroy']]);
+     }
 public function index()
     {
 

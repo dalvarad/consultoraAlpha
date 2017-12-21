@@ -11,6 +11,10 @@ use Freshwork\ChileanBundle\Rut;
 
 class EmpleadosController extends Controller
 {
+    public function __construct()
+     {
+         $this->middleware('admin', ['only' => ['create','store', 'edit', 'update', 'destroy']]);
+     }
     public function index(){
     	$empleado = empleado::orderBy('id','ASC')->paginate(10);
     	

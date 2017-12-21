@@ -6,9 +6,11 @@
 
 <div>
 	<div align="center">
-		<a href="{{ route('admin.ebic.create') }}" class="btn btn-info">Registrar nueva capacitación.</a>
-		<a href="{{ url('admin/pdfebic')}}" class="btn btn-danger"><span class="glyphicon glyphicon-save-file">pdf</span></a>
-	
+		 @if(Auth::user()->id_user_type ==1)
+			<a href="{{ route('admin.ebic.create') }}" class="btn btn-info">Registrar nueva capacitación.</a>
+			<a href="{{ url('admin/pdfebic')}}" class="btn btn-danger"><span class="glyphicon glyphicon-save-file">pdf</span></a>
+		@endif
+		
 	</div>
 	<p></p>
 	<table class="table table-striped">
@@ -30,10 +32,12 @@
 					<td>{{ $ebic->nombre_capacitacion }}</td>
 					<td>{{ $ebic->porcentaje }}</td>
 					<td>{{ $ebic->nombre_institucion }}</td>
-					<td>
-						<a href="{{ route('admin.ebic.edit', $ebic->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> 
-						<a href="{{ route('admin.ebic.destroy', $ebic->id) }}" onclick="return confirm('¿Está seguro de eliminar la capacitación seleccionada?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
-					</td>
+					 @if(Auth::user()->id_user_type ==1)
+						<td>
+							<a href="{{ route('admin.ebic.edit', $ebic->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> 
+							<a href="{{ route('admin.ebic.destroy', $ebic->id) }}" onclick="return confirm('¿Está seguro de eliminar la capacitación seleccionada?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						</td>
+					@endif
 				</tr>
 
 			@endforeach

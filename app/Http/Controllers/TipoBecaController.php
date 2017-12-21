@@ -14,6 +14,10 @@ class TipoBecaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+   public function __construct()
+     {
+         $this->middleware('admin', ['only' => ['index','create','store', 'edit', 'update', 'destroy']]);
+     }
     public function index()
     {
            $tipobeca = \DB::table('tipobeca')

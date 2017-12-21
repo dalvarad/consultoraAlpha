@@ -11,7 +11,10 @@ use App\Http\Requests;
 class UsertypeController extends Controller
 {
     
-
+    public function __construct()
+     {
+         $this->middleware('admin', ['only' => ['index','create','store', 'edit', 'update', 'destroy']]);
+     }
     public function index()
     {
 

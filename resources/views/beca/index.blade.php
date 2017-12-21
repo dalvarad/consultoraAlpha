@@ -5,10 +5,12 @@
 @section('content')
 
 <div>
-	<div align="center">
-		<a href="{{ route('beca.create') }}" class="btn btn-info">Registrar nueva beca</a>
-	
-	</div>
+	 @if(Auth::user()->id_user_type ==1)
+		<div align="center">
+			<a href="{{ route('beca.create') }}" class="btn btn-info">Registrar nueva beca</a>
+		
+		</div>
+	@endif
 	<p></p>
 	<table class="table table-striped">
 		<thead>
@@ -24,8 +26,10 @@
 					<td>{{ $becas->porcentaje }}</td>
 					<td>{{ $becas->tipo_beca }}</td>
 					<td>
-						<a href="{{ route('beca.edit', $becas->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> 
-						<a href="{{ route('beca.destroy', $becas->id) }}" onclick="return confirm('¿Está seguro de eliminar la beca seleccionada?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 @if(Auth::user()->id_user_type ==1)
+							<a href="{{ route('beca.edit', $becas->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> 
+							<a href="{{ route('beca.destroy', $becas->id) }}" onclick="return confirm('¿Está seguro de eliminar la beca seleccionada?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						@endif
 					</td>
 				</tr>
 

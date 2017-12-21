@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Session;
 
 class EbicController extends Controller
 {
+    public function __construct()
+     {
+         $this->middleware('admin', ['only' => ['create','store', 'edit', 'update', 'destroy']]);
+     }
     public function index()
     {
     	$ebic = DB::table('ebic')

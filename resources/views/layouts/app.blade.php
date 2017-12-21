@@ -51,6 +51,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
+                @if (Auth::check())  
                     <li><a href="{{ url('/home') }}" style="color: #000000;">Inicio</a></li>
                     <li><a href="{{ url('admin/empleado')}}" style="color: #000000;">Empleados</a></li>
                     <li><a href="{{ url('admin/ebic')}}" style="color: #000000;">Capacitiones</a></li>
@@ -65,11 +66,13 @@
                         <ul class="dropdown-menu">
                             <li>
                                  <a href="{{url('/beca')}}" style="color: #000000;">Becas</a>
-                                <a href="{{url('/tipobeca')}}" style="color: #000000;">Tipos de Becas</a>                            
+                             @if(Auth::user()->id_user_type ==1)
+                                <a href="{{url('/tipobeca')}}" style="color: #000000;">Tipos de Becas</a>
+                                @endif         
                             </li>
                         </ul>
                     </li>
-
+                @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->

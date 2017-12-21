@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Session;
 
 class PagoController extends Controller
 {
+    public function __construct()
+     {
+         $this->middleware('admin', ['only' => ['create','store', 'edit', 'update', 'destroy']]);
+     }
     public function index()
     {
     	$pago = DB::table('pago')

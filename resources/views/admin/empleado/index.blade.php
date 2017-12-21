@@ -4,9 +4,11 @@
 
 @section('content')
 
-	<div align="center">
-		<a href="{{ route('admin.empleado.create') }}" class="btn btn-info">Registrar Empleado</a>
-	</div>
+	 @if(Auth::user()->id_user_type ==1)
+		<div align="center">
+			<a href="{{ route('admin.empleado.create') }}" class="btn btn-info">Registrar Empleado</a>
+		</div>
+	@endif
 	<p></p>
 	<table class="table table-striped">
 		<thead>
@@ -23,10 +25,12 @@
 					<td>{{ $empleado->first_name }}</td>
 					<td>{{ $empleado->last_name }}</td>
 					<td>{{ $empleado->rut }}</td>
-					<td>
-						<a href="{{ route('admin.empleado.edit', $empleado->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> 
-						<a href="{{ route('admin.empleado.destroy', $empleado->id) }}" onclick="return confirm('¿Está seguro de eliminar al empleado seleccionado?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
-					</td>
+					 @if(Auth::user()->id_user_type ==1)
+						<td>
+							<a href="{{ route('admin.empleado.edit', $empleado->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> 
+							<a href="{{ route('admin.empleado.destroy', $empleado->id) }}" onclick="return confirm('¿Está seguro de eliminar al empleado seleccionado?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						</td>
+					@endif
 				</tr>
 			@endforeach
 		</tbody>

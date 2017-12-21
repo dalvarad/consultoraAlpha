@@ -5,10 +5,12 @@
 @section('content')
 
 <div>
-	<div align="center">
-		<a href="{{ route('capacitaciones.create') }}" class="btn btn-info">Registrar nueva capacitacion</a>
-	
-	</div>
+	 @if(Auth::user()->id_user_type ==1)
+		<div align="center">
+			<a href="{{ route('capacitaciones.create') }}" class="btn btn-info">Registrar nueva capacitacion</a>
+		
+		</div>
+	@endif
 	<p></p>
 	<table class="table table-striped">
 		<thead>
@@ -30,8 +32,10 @@
 					<td>{{ $capacitacion->fecha_fin }}</td>
 					<td>{{ $capacitacion->duracion }} Meses</td>
 					<td>
-						<a href="{{ route('capacitaciones.edit', $capacitacion->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> 
-						<a href="{{ route('capacitaciones.destroy', $capacitacion->id) }}" onclick="return confirm('¿Está seguro de eliminar la capacitacion seleccionada?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						 @if(Auth::user()->id_user_type ==1)
+							<a href="{{ route('capacitaciones.edit', $capacitacion->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a> 
+							<a href="{{ route('capacitaciones.destroy', $capacitacion->id) }}" onclick="return confirm('¿Está seguro de eliminar la capacitacion seleccionada?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+						@endif
 					</td>
 				</tr>
 

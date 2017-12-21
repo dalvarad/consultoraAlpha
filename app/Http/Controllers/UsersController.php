@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Session;
 
 class UsersController extends Controller
 {
+    public function __construct()
+     {
+         $this->middleware('admin', ['only' => ['index','create','store', 'edit', 'update', 'destroy']]);
+     }
     public function index()
     {
 
