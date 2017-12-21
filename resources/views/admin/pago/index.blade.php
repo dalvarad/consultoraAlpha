@@ -9,7 +9,7 @@
 	 @if(Auth::user()->id_user_type ==1)
 		<div align="center">
 			<a href="{{ route('admin.pago.create') }}" class="btn btn-info">Registrar nuevo pago</a>
-		
+			<a href="{{ url('admin/pagospdf')}}" class="btn btn-danger"><span class="glyphicon glyphicon-save-file">Pagos</span></a>
 		</div>
 	@endif
 	<p></p>

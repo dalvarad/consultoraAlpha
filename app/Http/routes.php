@@ -89,11 +89,27 @@ Route::get('/home', 'HomeController@index');
     			->join('empleado', 'empleado.id', '=', 'ebic.id_empleado')
     			->join('capacitacion', 'capacitacion.id', '=', 'ebic.id_capacitacion')
     			->groupBy('capacitacion.nombre_capacitacion','institucion.nombre_institucion')
-
                 ->get();
        
 		$pdf = PDF::loadView('admin.ebic.porcentaje', ['porcentaje' => $porcentaje , 'sumaempleados'=> $sumaEmpleados]);
 		return $pdf->download('porcentaje.pdf');
+	});
+
+	Route::get('pagospdf',function(){
+		$pagos = DB::table('ebic')
+           
+                ->join('empleado', 'empleado.id', '=', 'ebic.id_empleado')
+                ->join('beca','beca.id', '=', 'ebic.id_beca')
+                ->join('tipobeca', 'tipobeca.id', '=', 'beca.id_tipo_beca')
+                ->join('pago', 'pago.id_beca', '=', 'beca.id')
+                ->join('capacitacion', 'capacitacion.id', '=', 'ebic.id_capacitacion')
+                ->select('empleado.first_name', 'empleado.last_name', 'empleado.rut', 'beca.porcentaje','tipobeca.tipo_beca', 'capacitacion.nombre_capacitacion','pago.estado','pago.monto')
+             
+                ->orderBy('ebic.id','DESC')
+                ->get();
+       
+		$pdf = PDF::loadView('admin.pago.pagos', ['pagos' => $pagos]);
+		return $pdf->download('pagos.pdf');
 	});
 
 
