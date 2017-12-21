@@ -4,6 +4,8 @@
 
 
 @section('content')
+<h2>Pago.</h2>
+	<br>
 
 
 	 @if(Auth::user()->id_user_type ==1)

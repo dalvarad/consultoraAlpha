@@ -3,6 +3,8 @@
 @section('title', 'Lista de Empleados con Capacitaciones.')
 
 @section('content')
+<h2>Capacitaciones.</h2>
+<br>
 
 <div>
 	<div align="center">

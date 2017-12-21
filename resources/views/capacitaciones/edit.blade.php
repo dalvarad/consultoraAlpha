@@ -3,6 +3,8 @@
 @section('title', 'Crear Usuario')
 
 @section('content')
+<h2>Capacitación.</h2>
+	<br>
 
 <div class="container">
 	{!! Form::open(['route' => ['capacitaciones.update',$capacitacion],'method' => 'PUT']) !!}

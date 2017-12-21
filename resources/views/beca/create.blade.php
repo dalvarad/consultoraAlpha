@@ -3,7 +3,8 @@
 @section('title', 'Crear Beca')
 
 @section('content')
-
+<h2>Beca.</h2>
+	<br>
 	
 	{!! Form::open(['route' => 'beca.store','method' => 'POST']) !!}
 

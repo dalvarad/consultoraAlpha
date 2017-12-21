@@ -3,6 +3,8 @@
 @section('title', 'Lista de becas')
 
 @section('content')
+<h2>Beca.</h2>
+	<br>
 
 <div>
 	 @if(Auth::user()->id_user_type ==1)

@@ -4,6 +4,8 @@
 
 @section('content')
 
+<h2>Usuarios.</h2>
+	<br>
 
 
 	<div align="center">

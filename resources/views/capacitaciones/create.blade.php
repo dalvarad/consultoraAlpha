@@ -3,6 +3,8 @@
 @section('title', 'Crear Usuario')
 
 @section('content')
+<h2>Capacitación.</h2>
+	<br>
 
 
 	{!! Form::open(['route' => 'capacitaciones.store','method' => 'POST']) !!}

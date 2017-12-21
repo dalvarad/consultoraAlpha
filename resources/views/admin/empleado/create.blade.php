@@ -3,6 +3,9 @@
 @section('title', 'Crear Empleado')
 
 @section('content')
+	
+	<h2>Empleado</h2>
+	<br>
 
 
 	{!! Form::open(['route' => 'admin.empleado.store','method' => 'POST']) !!}

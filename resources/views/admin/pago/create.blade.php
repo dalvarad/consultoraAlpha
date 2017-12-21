@@ -4,6 +4,8 @@
 
 @section('content')
 
+<h2>Pago.</h2>
+	<br>
 
 	{!! Form::open(['route' => 'admin.pago.store','method' => 'POST']) !!}
 

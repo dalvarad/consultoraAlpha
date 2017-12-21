@@ -3,7 +3,8 @@
 @section('title', 'Editar Beca')
 
 @section('content')
-
+<h2>Beca.</h2>
+	<br>
 
 	{!! Form::open(['route' => ['beca.update', $beca], 'method' => 'PUT']) !!}
 

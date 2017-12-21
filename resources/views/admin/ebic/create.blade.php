@@ -3,6 +3,8 @@
 @section('title', 'Crear capacitación.')
 
 @section('content')
+<h2>Capacitaciones.</h2>
+<br>
 
 	{!! Form::open(['route' => 'admin.ebic.store', 'method' => 'POST']) !!}
 

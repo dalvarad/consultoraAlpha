@@ -4,6 +4,9 @@
 
 @section('content')
 
+<h2>Empleado</h2>
+	<br>
+
 	{!! Form::open(['route' => ['admin.empleado.update', $empleado], 'method' => 'PUT']) !!}
 		
 		{!! Form::label('first_name', 'Nombre de Empleado') !!}

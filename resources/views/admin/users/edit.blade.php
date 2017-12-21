@@ -4,6 +4,9 @@
 
 @section('content')
 
+<h2>Usuarios.</h2>
+	<br>
+
 	{!! Form::open(['route' => ['admin.users.update', $users], 'method' => 'PUT']) !!}
 
 

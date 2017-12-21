@@ -5,6 +5,8 @@
 
 @section('content')
 
+<h2>Institución.</h2>
+	<br>
 
 	 @if(Auth::user()->id_user_type ==1)
 		<div align="center">

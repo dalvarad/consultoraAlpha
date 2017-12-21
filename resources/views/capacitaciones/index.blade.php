@@ -3,6 +3,8 @@
 @section('title', 'Lista de usuarios')
 
 @section('content')
+<h2>Capacitación.</h2>
+	<br>
 
 <div>
 	 @if(Auth::user()->id_user_type ==1)

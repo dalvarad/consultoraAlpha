@@ -4,6 +4,9 @@
 
 @section('content')
 
+<h2>Empleado</h2>
+	<br>
+
 	 @if(Auth::user()->id_user_type ==1)
 		<div align="center">
 			<a href="{{ route('admin.empleado.create') }}" class="btn btn-info">Registrar Empleado</a>
