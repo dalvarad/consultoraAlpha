@@ -10,6 +10,8 @@
 			<a href="{{ route('admin.ebic.create') }}" class="btn btn-info">Registrar nueva capacitación.</a>
 			<a href="{{ url('admin/pdfebic')}}" class="btn btn-danger"><span class="glyphicon glyphicon-save-file">pdf</span></a>
 			<a href="{{ url('admin/porcentaje')}}" class="btn btn-danger"><span class="glyphicon glyphicon-save-file">Porcentaje empleados</span></a>
+			<a href="{{ url('admin/pdfpendientes') }}" class="btn btn-success"><span class="glyphicon glyphicon-save-file">Capacitación con pagos pendientes.</span></a>
+			<a href="{{ url('admin/pdfaldia') }}" class="btn btn-success"><span class="glyphicon glyphicon-save-file">Capacitación con pagos al día.</span></a>
 		@endif
 		
 	</div>

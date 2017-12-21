@@ -24,6 +24,11 @@
 
 		<p></p>
 
+		{!! Form::label('estado', 'Estado') !!}
+		{!! Form::select('estado', ['pagado'=>'Pagado','pendiente'=>'Pendiente','atrasado'=>'Atrasado'], $pago->estado,['class' => 'form-control', 'placeholder' => 'estado', 'required']) !!}
+
+		<p></p>
+
 
 		<div align="center">
 			{!! Form::submit('Modificar', ['class' => 'btn btn-primary']) !!}

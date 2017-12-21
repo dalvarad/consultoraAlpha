@@ -79,7 +79,7 @@ class PagoController extends Controller
         $pago = pago::find($id);
         $lista_beca = DB::table('beca')
         			  ->orderBy('id')
-        			  ->lists('id','porcentaje');
+        			  ->lists('porcentaje');
         return view('admin.pago.edit')->with('pago', $pago)->with('lista_beca', $lista_beca);
     }
 
@@ -108,7 +108,7 @@ class PagoController extends Controller
      */
     public function destroy($id)
     {
-        $pago = Reserva::find($id);
+        $pago = pago::find($id);
         $pago->delete();
 
         Session::flash('message_danger', "Se ha eliminado el pago $pago->id exitosamente!");

@@ -67,18 +67,54 @@ Route::get('/home', 'HomeController@index');
 		'uses' => 'EbicController@destroy',
 		'as' => 'admin.ebic.destroy'
 	]);	
+	
+	//pdf general de capacitaciones
 	Route::get('pdfebic',function(){
 		$ebic = DB::table('ebic')
     			->join('institucion', 'institucion.id', '=', 'ebic.id_institucion' )
     			->join('empleado', 'empleado.id', '=', 'ebic.id_empleado')
     			->join('beca','beca.id', '=', 'ebic.id_beca')
+                ->join('pago', 'pago.id_beca', '=', 'beca.id')
     			->join('capacitacion', 'capacitacion.id', '=', 'ebic.id_capacitacion')
-                ->select('ebic.*','institucion.nombre_institucion','institucion.direccion','empleado.first_name', 'empleado.last_name', 'empleado.rut', 'beca.id_tipo_beca', 'beca.porcentaje', 'capacitacion.nombre_capacitacion')
+                ->select('ebic.*','institucion.nombre_institucion','institucion.direccion','empleado.first_name', 'empleado.last_name', 'empleado.rut', 'beca.id_tipo_beca', 'beca.porcentaje', 'capacitacion.nombre_capacitacion','pago.estado')
                 ->orderBy('ebic.id','DESC')
                 ->get();
 		$pdf = PDF::loadView('admin.ebic.pdf', ['ebic' => $ebic]);
 		return $pdf->download('capacitaciones.pdf');
 	});
+
+	//pdf capacitaciones con pagos pendientes
+	Route::get('pdfpendientes',function(){
+		$ebic = DB::table('ebic')
+                ->join('institucion', 'institucion.id', '=', 'ebic.id_institucion' )
+                ->join('empleado', 'empleado.id', '=', 'ebic.id_empleado')
+                ->join('beca','beca.id', '=', 'ebic.id_beca')
+                ->join('pago', 'pago.id_beca', '=', 'beca.id')
+                ->join('capacitacion', 'capacitacion.id', '=', 'ebic.id_capacitacion')
+                ->select('ebic.*','institucion.nombre_institucion','institucion.direccion','empleado.first_name', 'empleado.last_name', 'empleado.rut', 'beca.id_tipo_beca', 'beca.porcentaje', 'capacitacion.nombre_capacitacion','pago.estado')
+                ->where('pago.estado', '=', 'pendiente')
+                ->orderBy('ebic.id','DESC')
+                ->get();
+		$pdf = PDF::loadView('admin.ebic.pdfpendiente', ['ebic' => $ebic]);
+		return $pdf->download('capacitaciones_pendientes.pdf');
+	});
+
+	//pdf capacitaciones con pagos al dia
+	Route::get('pdfaldia',function(){
+		$ebic = DB::table('ebic')
+                ->join('institucion', 'institucion.id', '=', 'ebic.id_institucion' )
+                ->join('empleado', 'empleado.id', '=', 'ebic.id_empleado')
+                ->join('beca','beca.id', '=', 'ebic.id_beca')
+                ->join('pago', 'pago.id_beca', '=', 'beca.id')
+                ->join('capacitacion', 'capacitacion.id', '=', 'ebic.id_capacitacion')
+                ->select('ebic.*','institucion.nombre_institucion','institucion.direccion','empleado.first_name', 'empleado.last_name', 'empleado.rut', 'beca.id_tipo_beca', 'beca.porcentaje', 'capacitacion.nombre_capacitacion','pago.estado')
+                ->where('pago.estado', '=', 'pagado')
+                ->orderBy('ebic.id','DESC')
+                ->get();
+		$pdf = PDF::loadView('admin.ebic.aldia', ['ebic' => $ebic]);
+		return $pdf->download('capacitaciones_al_dia.pdf');
+	});
+
 	Route::get('porcentaje',function(){
 		$sumaEmpleados = DB::table('empleado')
 				->select(DB::raw('SUM(empleado.id) as suma '))

@@ -18,11 +18,12 @@ class EbicController extends Controller
     public function index()
     {
     	$ebic = DB::table('ebic')
-    			->join('institucion', 'institucion.id', '=', 'ebic.id_institucion' )
-    			->join('empleado', 'empleado.id', '=', 'ebic.id_empleado')
-    			->join('beca','beca.id', '=', 'ebic.id_beca')
-    			->join('capacitacion', 'capacitacion.id', '=', 'ebic.id_capacitacion')
-                ->select('ebic.*','institucion.nombre_institucion','institucion.direccion','empleado.first_name', 'empleado.last_name', 'empleado.rut', 'beca.id_tipo_beca', 'beca.porcentaje', 'capacitacion.nombre_capacitacion')
+                ->join('institucion', 'institucion.id', '=', 'ebic.id_institucion' )
+                ->join('empleado', 'empleado.id', '=', 'ebic.id_empleado')
+                ->join('beca','beca.id', '=', 'ebic.id_beca')
+                ->join('pago', 'pago.id_beca', '=', 'beca.id')
+                ->join('capacitacion', 'capacitacion.id', '=', 'ebic.id_capacitacion')
+                ->select('ebic.*','institucion.nombre_institucion','institucion.direccion','empleado.first_name', 'empleado.last_name', 'empleado.rut', 'beca.id_tipo_beca', 'beca.porcentaje', 'capacitacion.nombre_capacitacion','pago.estado')
                 ->orderBy('ebic.id','DESC')
                 ->get();
 
