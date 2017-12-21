@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Ebic;
 use DB;
+use App\capacitacion;
 use Illuminate\Support\Facades\Session;
 
 class EbicController extends Controller
@@ -65,6 +66,12 @@ class EbicController extends Controller
     public function store(Request $request)
     {
         $ebic = new Ebic($request->all());
+
+        //disminuye en uno el cupo de una capacitacion
+        $cpc = $ebic->id_capacitacion;
+        $cpc2 = capacitacion::find($cpc);
+        $cpc2->cupos = $cpc2->cupos - 1;
+        $cpc2->save(); 
         
     	$ebic->save();
 
@@ -109,6 +116,12 @@ class EbicController extends Controller
         					  ->orderBy('id')
         					  ->lists('nombre_capacitacion', 'id');
 
+        //aumenta en uno la cantidad de cupos de la capacitacion que se va a modificar
+        $cpc = $ebic->id_capacitacion;
+        $cpc2 = capacitacion::find($cpc);
+        $cpc2->cupos = $cpc2->cupos + 1;
+        $cpc2->save(); 
+
         return view('admin.ebic.edit')->with('ebic', $ebic)->with('lista_beca', $lista_beca)->with('lista_empleados', $lista_empleados)->with('lista_instituciones', $lista_instituciones)->with('lista_capacitaciones', $lista_capacitaciones);
     }
 
@@ -123,6 +136,13 @@ class EbicController extends Controller
     {
         $ebic = Ebic::find($id);
         $ebic->fill($request->all());
+
+        //disminuye en -1 la cantidad de cupo de la capacitacion modificada
+        $cpc = $ebic->id_capacitacion;
+        $cpc2 = capacitacion::find($cpc);
+        $cpc2->cupos = $cpc2->cupos - 1;
+        $cpc2->save();
+
         $ebic->save();
 
         Session::flash('message_success', "Se ha modificado la capacitacion $ebic->id exitosamente!");
