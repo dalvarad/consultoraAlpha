@@ -79,6 +79,22 @@ Route::get('/home', 'HomeController@index');
 		$pdf = PDF::loadView('admin.ebic.pdf', ['ebic' => $ebic]);
 		return $pdf->download('capacitaciones.pdf');
 	});
+	Route::get('porcentaje',function(){
+		$sumaEmpleados = DB::table('empleado')
+				->select(DB::raw('SUM(empleado.id) as suma '))
+				->get();
+		$porcentaje = DB::table('ebic')
+				->select('capacitacion.nombre_capacitacion','institucion.nombre_institucion', DB::raw('SUM(empleado.id) as sumaEmpleados '))
+    			->join('institucion', 'institucion.id', '=', 'ebic.id_institucion' )
+    			->join('empleado', 'empleado.id', '=', 'ebic.id_empleado')
+    			->join('capacitacion', 'capacitacion.id', '=', 'ebic.id_capacitacion')
+    			->groupBy('capacitacion.nombre_capacitacion','institucion.nombre_institucion')
+
+                ->get();
+       
+		$pdf = PDF::loadView('admin.ebic.porcentaje', ['porcentaje' => $porcentaje , 'sumaempleados'=> $sumaEmpleados]);
+		return $pdf->download('porcentaje.pdf');
+	});
 
 
 });

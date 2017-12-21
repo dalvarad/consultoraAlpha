@@ -9,6 +9,7 @@
 		 @if(Auth::user()->id_user_type ==1)
 			<a href="{{ route('admin.ebic.create') }}" class="btn btn-info">Registrar nueva capacitación.</a>
 			<a href="{{ url('admin/pdfebic')}}" class="btn btn-danger"><span class="glyphicon glyphicon-save-file">pdf</span></a>
+			<a href="{{ url('admin/porcentaje')}}" class="btn btn-danger"><span class="glyphicon glyphicon-save-file">Porcentaje empleados</span></a>
 		@endif
 		
 	</div>
