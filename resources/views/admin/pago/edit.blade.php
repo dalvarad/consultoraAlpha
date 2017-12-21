@@ -44,3 +44,24 @@
 	
 	
 @endsection	
+
+@section('js')
+	<script>
+		jQuery(function(){
+ 			jQuery('#fecha_pago').datetimepicker({
+  				timepicker: false,
+  				format: 'Y-m-d'
+ 			});
+ 			jQuery('#fecha_vencimiento').datetimepicker({
+ 				timepicker: false,
+  				format:'Y-m-d',
+  				onShow:function( ct ){
+  					this.setOptions({
+  				  		minDate:jQuery('#fecha_pago').val()?jQuery('#fecha_pago').val():false
+  				 	})
+ 				},
+			});
+		});
+	</script>
+
+@endsection

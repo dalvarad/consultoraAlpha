@@ -35,8 +35,30 @@
 	{!! Form::close() !!}
 	</div>
 </div>
-
-
-	
-
 @endsection	
+
+@section('js')
+	<script>
+		jQuery(function(){
+ 			jQuery('#fecha_inicio').datetimepicker({
+ 				timepicker: false,
+  				format:'Y-m-d',
+  				onShow:function( ct ){
+  					this.setOptions({
+  						maxDate:jQuery('#fecha_fin').val()?jQuery('#fecha_fin').val():false
+  					})
+  				},
+ 			});
+ 			jQuery('#fecha_fin').datetimepicker({
+ 				timepicker: false,
+  				format:'Y-m-d',
+  				onShow:function( ct ){
+  					this.setOptions({
+  				  		minDate:jQuery('#fecha_inicio').val()?jQuery('#fecha_inicio').val():false
+  				 	})
+ 				},
+			});
+		});
+	</script>
+
+@endsection
