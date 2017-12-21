@@ -3,10 +3,10 @@
 @section('title', 'Lista de becas')
 
 @section('content')
-<h2>Beca.</h2>
-	<br>
-
-<div>
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Becas</H3></div>
+	<div class="panel-body">
+		<div>
 	 @if(Auth::user()->id_user_type ==1)
 		<div align="center">
 			<a href="{{ route('beca.create') }}" class="btn btn-info">Registrar nueva beca</a>
@@ -41,5 +41,9 @@
 
 
 </div>
+	</div>
+</div>
+
+
 
 @endsection

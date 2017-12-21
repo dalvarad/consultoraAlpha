@@ -3,10 +3,10 @@
 @section('title', 'Lista de usuarios')
 
 @section('content')
-<h2>Capacitación.</h2>
-	<br>
-
-<div>
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Tipos de Capacitaciones</H3></div>
+	<div class="panel-body">
+		<div>
 	 @if(Auth::user()->id_user_type ==1)
 		<div align="center">
 			<a href="{{ route('capacitaciones.create') }}" class="btn btn-info">Registrar nueva capacitacion</a>
@@ -47,5 +47,9 @@
 
 
 </div>
+	</div>
+</div>
+
+
 
 @endsection

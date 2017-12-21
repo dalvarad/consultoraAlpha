@@ -3,12 +3,10 @@
 @section('title', 'Crear Empleado')
 
 @section('content')
-	
-	<h2>Empleado</h2>
-	<br>
-
-
-	{!! Form::open(['route' => 'admin.empleado.store','method' => 'POST']) !!}
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Empleado</H3></div>
+	<div class="panel-body">
+		{!! Form::open(['route' => 'admin.empleado.store','method' => 'POST']) !!}
 
  		{!! Form::label('first_name', 'Nombre de Empleado') !!}
 		{!! Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'Juan', 'required']) !!}
@@ -27,5 +25,11 @@
 		</div>
 
 	{!! Form::close() !!}
+		
+	</div>
+</div>
+
+
+	
 
 @endsection	

@@ -4,10 +4,10 @@
 
 @section('content')
 
-<h2>Usuarios.</h2>
-	<br>
-
-	{!! Form::open(['route' => ['admin.users.update', $users], 'method' => 'PUT']) !!}
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Usuarios</H3></div>
+	<div class="panel-body">
+		{!! Form::open(['route' => ['admin.users.update', $users], 'method' => 'PUT']) !!}
 
 
  		{!! Form::label('name', 'Nombre de Usuario') !!}
@@ -28,5 +28,9 @@
 		</div>
 
 	{!! Form::close() !!}
+	</div>
+</div>
+
+	
 
 @endsection

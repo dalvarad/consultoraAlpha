@@ -4,10 +4,10 @@
 
 @section('content')
 
-<h2>Pago.</h2>
-	<br>
-
-	{!! Form::open(['route' => 'admin.pago.store','method' => 'POST']) !!}
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Pagos</H3></div>
+	<div class="panel-body">
+		{!! Form::open(['route' => 'admin.pago.store','method' => 'POST']) !!}
 
  		{!! Form::label('monto', 'Monto') !!}
 		{!! Form::text('monto', null, ['class' => 'form-control', 'placeholder' => '10.000', 'required'])!!}
@@ -35,5 +35,9 @@
 		</div>
 
 	{!! Form::close() !!}
+	</div>
+</div>
+
+	
 
 @endsection	

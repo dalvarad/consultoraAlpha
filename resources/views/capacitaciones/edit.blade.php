@@ -3,10 +3,10 @@
 @section('title', 'Crear Usuario')
 
 @section('content')
-<h2>Capacitación.</h2>
-	<br>
-
-<div class="container">
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Tipos de Capacitaciones</H3></div>
+	<div class="panel-body">
+		<div class="container">
 	{!! Form::open(['route' => ['capacitaciones.update',$capacitacion],'method' => 'PUT']) !!}
 
  		{!! Form::label('nombre', 'Nombre Capacitacion') !!}
@@ -35,5 +35,9 @@
 
 	{!! Form::close() !!}
 </div>
+	</div>
+</div>
+
+
 
 @endsection	

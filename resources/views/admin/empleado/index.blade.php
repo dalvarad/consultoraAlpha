@@ -4,10 +4,10 @@
 
 @section('content')
 
-<h2>Empleado</h2>
-	<br>
-
-	 @if(Auth::user()->id_user_type ==1)
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Empleado</H3></div>
+	<div class="panel-body">
+		@if(Auth::user()->id_user_type ==1)
 		<div align="center">
 			<a href="{{ route('admin.empleado.create') }}" class="btn btn-info">Registrar Empleado</a>
 		</div>
@@ -38,5 +38,8 @@
 			@endforeach
 		</tbody>
 	</table>
+	</div>
+</div>
+	 
 
 @endsection

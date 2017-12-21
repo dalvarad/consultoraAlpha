@@ -3,10 +3,10 @@
 @section('title', 'Editar Beca')
 
 @section('content')
-<h2>Beca.</h2>
-	<br>
-
-	{!! Form::open(['route' => ['beca.update', $beca], 'method' => 'PUT']) !!}
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Becas</H3></div>
+	<div class="panel-body">
+		{!! Form::open(['route' => ['beca.update', $beca], 'method' => 'PUT']) !!}
 
  		{!! Form::label('porcentaje', 'Porcentaje Capacitacion') !!}
 		{!! Form::text('porcentaje', $beca->porcentaje, ['class' => 'form-control', 'placeholder' => 'Nombre Capacitacion', 'required']) !!}
@@ -22,5 +22,9 @@
 		</div>
 
 	{!! Form::close() !!}
+	</div>
+</div>
+
+	
 
 @endsection	

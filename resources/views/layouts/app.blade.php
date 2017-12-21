@@ -54,7 +54,7 @@
                 @if (Auth::check())  
                     <li><a href="{{ url('/home') }}" style="color: #000000;">Inicio</a></li>
                     <li><a href="{{ url('admin/empleado')}}" style="color: #000000;">Empleados</a></li>
-                    <li><a href="{{ url('admin/ebic')}}" style="color: #000000;">Capacitiones</a></li>
+                    <li><a href="{{ url('admin/ebic')}}" style="color: #000000;">Capacitaciones</a></li>
                     <li><a href="{{ url('admin/pago')}}" style="color: #000000;">Pagos</a></li>
                     <li><a href="{{ url('admin/institucion')}}" style="color: #000000;">Instituciones</a></li>
                     <li><a href="{{ url('/capacitaciones')}}" style="color: #000000;">Tipos de Capacitaciones</a></li>

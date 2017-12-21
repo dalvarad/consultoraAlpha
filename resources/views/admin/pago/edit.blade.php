@@ -4,10 +4,10 @@
 
 @section('content')
 
-<h2>Pago.</h2>
-	<br>
-	
-	{!! Form::open(['route' => ['admin.pago.update', $pago],'method' => 'PUT']) !!}
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Pagos</H3></div>
+	<div class="panel-body">
+		{!! Form::open(['route' => ['admin.pago.update', $pago],'method' => 'PUT']) !!}
 		{!! Form::label('monto', 'Monto') !!}
 		{!! Form::text('monto', $pago->monto, ['class' => 'form-control', 'placeholder' => '10.000', 'required'])!!}
 
@@ -39,4 +39,8 @@
 		</div>
 
 	{!! Form::close() !!}
+	</div>
+</div>
+	
+	
 @endsection	

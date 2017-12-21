@@ -3,9 +3,10 @@
 @section('title', 'Crear Tipo Beca')
 
 @section('content')
-
-
-	{!! Form::open(['route' => 'tipobeca.store','method' => 'POST']) !!}
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Tipos de Becas</H3></div>
+	<div class="panel-body">
+		{!! Form::open(['route' => 'tipobeca.store','method' => 'POST']) !!}
 
  		{!! Form::label('tipo_beca', 'Tipo de Beca') !!}
 		{!! Form::text('tipo_beca', null, ['class' => 'form-control', 'placeholder' => 'Arancel', 'required']) !!}
@@ -18,5 +19,9 @@
 		</div>
 
 	{!! Form::close() !!}
+	</div>
+</div>
+
+	
 
 @endsection	

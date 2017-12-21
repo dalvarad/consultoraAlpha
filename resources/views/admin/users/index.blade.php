@@ -4,11 +4,10 @@
 
 @section('content')
 
-<h2>Usuarios.</h2>
-	<br>
-
-
-	<div align="center">
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Usuarios</H3></div>
+	<div class="panel-body">
+		<div align="center">
 		<a href="{{ route('admin.users.create') }}" class="btn btn-info">Registrar nuevo usuario</a>
 	
 	</div>
@@ -44,5 +43,10 @@
 			@endforeach
 		</tbody>
 	</table>
+	</div>
+</div>
+
+
+	
 
 @endsection

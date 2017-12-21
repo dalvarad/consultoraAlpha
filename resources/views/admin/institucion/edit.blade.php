@@ -3,11 +3,10 @@
 @section('title', 'Editar Institucion ' . $institucion->nombre)
 
 @section('content')
-
-<h2>Institución.</h2>
-	<br>
-
-	{!! Form::open(['route' => ['admin.institucion.update', $institucion], 'method' => 'PUT']) !!}
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Institución</H3></div>
+	<div class="panel-body">
+		{!! Form::open(['route' => ['admin.institucion.update', $institucion], 'method' => 'PUT']) !!}
 
 
  		{!! Form::label('nombre', 'Nombre de Institucion') !!}
@@ -27,5 +26,9 @@
 		</div>
 
 	{!! Form::close() !!}
+	</div>
+</div>
+
+	
 
 @endsection

@@ -3,11 +3,10 @@
 @section('title', 'Crear Usuario')
 
 @section('content')
-<h2>Capacitación.</h2>
-	<br>
-
-
-	{!! Form::open(['route' => 'capacitaciones.store','method' => 'POST']) !!}
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Tipos de Capacitaciones</H3></div>
+	<div class="panel-body">
+		{!! Form::open(['route' => 'capacitaciones.store','method' => 'POST']) !!}
 
  		{!! Form::label('nombre_capacitacion', 'Nombre Capacitacion') !!}
 		{!! Form::text('nombre_capacitacion', null, ['class' => 'form-control', 'placeholder' => 'Nombre Capacitacion', 'required']) !!}
@@ -34,5 +33,10 @@
 		</div>
 
 	{!! Form::close() !!}
+	</div>
+</div>
+
+
+	
 
 @endsection	

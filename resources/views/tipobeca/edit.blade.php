@@ -5,7 +5,10 @@
 @section('content')
 
 <div class="container">
-	{!! Form::open(['route' => ['tipobeca.update',$tipobeca],'method' => 'PUT']) !!}
+	<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Tipos de Becas</H3></div>
+	<div class="panel-body">
+		{!! Form::open(['route' => ['tipobeca.update',$tipobeca],'method' => 'PUT']) !!}
 
  		{!! Form::label('tipo_beca', 'Nombre Capacitacion') !!}
 		{!! Form::text('tipo_beca', $tipobeca->tipo_beca, ['class' => 'form-control', 'placeholder' => 'Nombre Capacitacion', 'required']) !!}
@@ -19,6 +22,9 @@
 		</div>
 
 	{!! Form::close() !!}
+	</div>
+</div>
+	
 </div>
 
 @endsection	

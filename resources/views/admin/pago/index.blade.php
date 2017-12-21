@@ -4,11 +4,10 @@
 
 
 @section('content')
-<h2>Pago.</h2>
-	<br>
-
-
-	 @if(Auth::user()->id_user_type ==1)
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Pagos</H3></div>
+	<div class="panel-body">
+		 @if(Auth::user()->id_user_type ==1)
 		<div align="center">
 			<a href="{{ route('admin.pago.create') }}" class="btn btn-info">Registrar nuevo pago</a>
 			<a href="{{ url('admin/pagospdf')}}" class="btn btn-danger"><span class="glyphicon glyphicon-save-file">Pagos</span></a>
@@ -46,5 +45,10 @@
 			@endforeach
 		</tbody>
 	</table>
+	</div>
+</div>
+
+
+	
 
 @endsection

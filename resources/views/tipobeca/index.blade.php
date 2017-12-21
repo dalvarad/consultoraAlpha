@@ -4,7 +4,10 @@
 
 @section('content')
 
-<div class="container">
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Tipos de Becas</H3></div>
+	<div class="panel-body">
+		<div class="container">
 	<div align="center">
 		<a href="{{ route('tipobeca.create') }}" class="btn btn-info">Registrar nuevo tipo de beca</a>
 	
@@ -34,5 +37,9 @@
 
 
 </div>
+	</div>
+</div>
+
+
 
 @endsection

@@ -3,10 +3,10 @@
 @section('title', 'Modificar capacitación.'. $ebic->id)
 
 @section('content')
-<h2>Capacitaciones.</h2>
-<br>
-
-	{!! Form::open(['route' => ['admin.ebic.update', $ebic], 'method' => 'PUT']) !!}
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Capacitación</H3></div>
+	<div class="panel-body">
+		{!! Form::open(['route' => ['admin.ebic.update', $ebic], 'method' => 'PUT']) !!}
 
 	<p></p>
 	{!! Form::label('id_empleado', 'Rut Empleado') !!}
@@ -30,5 +30,9 @@
 	</div>
 
 	{!! Form::close() !!}
+	</div>
+</div>
+
+	
 
 @endsection

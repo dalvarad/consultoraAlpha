@@ -4,11 +4,10 @@
 
 @section('content')
 
-<h2>Usuarios.</h2>
-	<br>
-
-
-	{!! Form::open(['route' => 'admin.users.store','method' => 'POST']) !!}
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Usuarios</H3></div>
+	<div class="panel-body">
+		{!! Form::open(['route' => 'admin.users.store','method' => 'POST']) !!}
 
  		{!! Form::label('name', 'Nombre de Usuario') !!}
 		{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ramón Ramírez Roman', 'required']) !!}
@@ -35,5 +34,10 @@
 		</div>
 
 	{!! Form::close() !!}
+	</div>
+</div>
+
+
+	
 
 @endsection	

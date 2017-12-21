@@ -3,10 +3,12 @@
 @section('title', 'Lista de Empleados con Capacitaciones.')
 
 @section('content')
-<h2>Capacitaciones.</h2>
-<br>
 
-<div>
+<div class="panel panel-primary">
+    <!--<div class="panel-heading">Bienvenido a Consultora Alpha!</div>-->
+    <div class="panel-heading"><H3>Capacitación.</H3></div>
+    	<div class="panel-body">
+    		<div>
 	<div align="center">
 		 @if(Auth::user()->id_user_type ==1)
 			<a href="{{ route('admin.ebic.create') }}" class="btn btn-info">Registrar nueva capacitación.</a>
@@ -51,5 +53,9 @@
 
 
 </div>
+        </div>
+</div>
+
+
 
 @endsection

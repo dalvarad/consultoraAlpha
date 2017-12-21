@@ -3,10 +3,10 @@
 @section('title', 'Crear Beca')
 
 @section('content')
-<h2>Beca.</h2>
-	<br>
-	
-	{!! Form::open(['route' => 'beca.store','method' => 'POST']) !!}
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Becas</H3></div>
+	<div class="panel-body">
+		{!! Form::open(['route' => 'beca.store','method' => 'POST']) !!}
 
  		{!! Form::label('porcentaje', 'Porcentaje') !!}
 		{!! Form::text('porcentaje', null, ['class' => 'form-control', 'placeholder' => '20', 'required']) !!}
@@ -22,5 +22,8 @@
 		</div>
 
 	{!! Form::close() !!}
+	</div>
+</div>
+	
 
 @endsection	

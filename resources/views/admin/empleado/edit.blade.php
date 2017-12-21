@@ -4,10 +4,10 @@
 
 @section('content')
 
-<h2>Empleado</h2>
-	<br>
-
-	{!! Form::open(['route' => ['admin.empleado.update', $empleado], 'method' => 'PUT']) !!}
+<div class="panel panel-primary">
+	<div class="panel-heading"><H3>Empleado</H3></div>
+	<div class="panel-body">
+		{!! Form::open(['route' => ['admin.empleado.update', $empleado], 'method' => 'PUT']) !!}
 		
 		{!! Form::label('first_name', 'Nombre de Empleado') !!}
 		{!! Form::text('first_name', $empleado->first_name, ['class' => 'form-control', 'placeholder' => 'Juan', 'required']) !!}
@@ -26,5 +26,8 @@
 		</div>
 
 	{!! Form::close() !!}
+	</div>
+</div>
+	
 
 @endsection
